@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Add Product To Site...</title>
+    <!-- <link rel="stylesheet" href="./styles/scrolebar.css"> -->
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        width: 100%;
+      }
+      nav {
+        width: 100%;
+        height: 70px;
+        background: rgb(32, 7, 5);
+        display: flex;
+        justify-content: space-between;
+      }
+      nav > div > a {
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+        font-weight: bolder;
+        height: 100%;
+        padding: 0px 30px 0px 30px;
+        display: flex;
+        align-items: center;
+      }
+      #adminbtn {
+        border: none;
+        border-radius: 0px 10px 10px 0px;
+        background-color: brown;
+      }
+      nav > img {
+        border-radius: 10px 0px 0px 10px;
+      }
+      h2 {
+        text-align: center;
+        margin-top: 5px;
+        margin-bottom: 20px;
+      }
+      form {
+        box-shadow: 10px 10px 132px -1px rgba(255, 145, 145, 1);
+        width: 400px;
+        border: 2px solid teal;
+        text-align: left;
+        margin: auto;
+        background-color: rgb(215 173 173 / 43%);
+        padding: 20px;
+        border-radius: 20px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin-bottom: 40px;
+      }
+      form>input{
+        width: 90%;
+        height: 40px;
+      }
+      #name{
+        grid-column-start: 1;
+        grid-column-end: 5;
+        font-size: 15px;
+        border-radius: 5px;
+        padding: 10px;
+      }
+      
+      #img{
+        grid-column-start: 1;
+        grid-column-end: 5;
+        font-size: 15px;
+        border-radius: 5px;
+        padding: 10px;
+      }
+      #price {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        font-size: 15px;
+        border-radius: 5px;
+        padding: 10px;
+      }
+      #rating{
+        grid-column-start: 3;
+        grid-column-end: 5;
+        font-size: 15px;
+        border-radius: 5px;
+        padding: 10px;
+      }
+      #cat{
+        grid-column-start: 1;
+        grid-column-end: 3;
+        font-size: 15px;
+        border-radius: 5px;
+        padding: 10px;
+      }
+      #menu{
+        grid-column-start: 3;
+        grid-column-end: 5;
+        font-size: 15px;
+        border-radius: 5px;
+        padding: 10px;
+      }
+     
+      
+      button {
+        grid-column-start: 1;
+        grid-column-end: 5;
+        padding: 10px;
+        color: white;
+        font-weight: bolder;
+        border-radius: 10px;
+        background: #37474F;
+        
+      }
+      .swal-text {
+        font-size: 20px;
+        font-weight: bolder;
+      }
+      .swal-button {
+        background-color: #0025ff;
+      }
+      @media screen and (min-width:0px) and (max-width:400px){
+        form{
+    width: 300px;
+  }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div id="adminbtn"><a href="./admin.html">Back to ADMIN Page</a></div>
+      <img
+        src="./Screenshot (39).png"
+        alt="logo"
+        onclick="locat()"
+      />
+    </nav>
+    <h2>Please Fill Product Details ...</h2>
+    <form method="post" name="google-sheet">
+      <input
+        type="text"
+        name="Title"
+        placeholder="Title of Restaurent..."
+        id="name"
+      />
+      <input
+        type="text"
+        name="Image"
+        placeholder="Past Image URL..."
+        id="img"
+      />
+      <input
+        type="number"
+        name="budget"
+        placeholder="Budget of a Restaurent..."
+        id="price"
+      />
+      
+      <input
+        type="number"
+        name="rating"
+        step="any"
+        placeholder="rating of a Restaurent..."
+        id="rating"
+      />
+      <input
+        type="text"
+        name="Category"
+        placeholder="Enter Category..."
+        id="cat"
+      /> 
+      <button type="submit" id="btn" name="submit">ADD to SITE</button>
+    </form>
+  </body> 
+  
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    const url ="https://test-h-8359.onrender.com/restaurants"
+    const form = document.forms["google-sheet"];
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      let restaurentData;
+      if ( form.name.value != "" && form.price.value != "" && form.img.value != "" && form.rating.value != "" && form.cat.value != "")
+         {
+         fetch(url)
+         .then(res=> res.json())
+         .then((data)=>{
+          restaurentData=data;
+          console.log(restaurentData);
+         
+          let newRestaurent={};
+          newRestaurent.id=restaurentData.length +1;
+          newRestaurent.title= form.name.value;
+          newRestaurent.budget= form.price.value;
+          newRestaurent.Category= form.cat.value.split(",").map(String);
+          newRestaurent.rating=form.rating.value;
+          newRestaurent.imgage=form.img.value;
+          newRestaurent.menu=[];
+          console.log(newRestaurent);
+          localStorage.setItem("newRestaurent",JSON.stringify(newRestaurent));
+          localStorage.setItem("opration",JSON.stringify({states :"Add"}));
+          
+          window.location.href = "addMenu.html";
+          
+         })
+       }
+      else {
+         Swal.fire(
+         'Good job!',
+          'You clicked the button!',
+          'success'
+            )
+      }
+    });
+
+
+    // function locat() {
+    //   location.href = "./index.html";
+    // }
+  </script>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GARDEN EAT'S</title>
+    <link rel="stylesheet" href="/style/cart.css">
+</head>
+<body>
+   
+    <nav>
+        <div class="wrapper">
+        <div id="onlyfornavstyle">
+            <div class="logo">
+                <img  src="/Screenshot (39).png" onclick="redirecttohomepage()" alt="">
+            </div>
+            <!-- <div id="onlyfornavstyl">
+            <div class="section" id="nav_buttons">
+              
+          
+          
+             
+            </div>
+            </div>
+           -->
+         </div>
+         </div>
+                  
+       
+      </nav>
+        <div id="page">
+        <div id="address">
+        <div id="top">
+            <img src="/image/location.png" alt="">
+            <h3> Choose a delevery Address</h3>
+        </div>
+         <div id="savedAddress">
+
+          <!-- Append Address Here -->
+           
+         </div>
+         <div id="addAddress">
+           <button >Add new Address</button>
+        </div>
+
+        </div>
+
+        <div id="productInfo">
+        <div id="title">
+           <!-- resturent name and img Appended here -->
+        </div>
+
+        <div id="dish" >
+             <!-- Append Dish List -->
+
+             <div>
+                <p>${name}</p>
+                <div>
+                    <button class="decrease">-</button>
+                    <p  > 1</p>
+                    <button class="increase">+</button>
+                </div>
+                <p> ₹ ${price}</p>
+            </div>
+                
+
+        </div>
+
+        <div id="coupon">
+            <i class="icon-offers-coupon _2W5PY"></i>
+            <img src="data:image/png;base64,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" alt="">
+            <p>Apply Coupon</p>
+        </div>
+
+        <div id="bill" >
+                <h4>Bill details</h4>
+                <div id="itemTotal">
+                   <!-- Append item Total here -->
+                </div>
+
+                <div id="deleveryprice" >
+                    <p>Delivery Fee </p>
+                    <p>₹ 55</p>
+                </div>
+
+                <div id="tax">
+                   <!-- Append tax Amount here -->
+                </div>
+
+                <div id="Total_price">
+                   <!-- Append total Bill here -->
+                </div>
+                 
+                 
+        </div>
+        
+            </div>
+        <div id="paymentDetails">
+            <div id="img_payment">
+            <img src="/image/payment.png" alt="">
+            <h3>Choose payment method</h3>
+              </div>
+
+              <div id="payment">
+                <div id="options">
+                    <img src="/image/png-transparent-black-wallet-logo-money-wallet-computer-icons-payment-finance-wallet-icons-no-attribution-text-service-logo-thumbnail.png" alt="">
+                    <button class="Button" id="wallets">  Wallets</button><br>
+                    <img src="/image/UPI_logo_PNG.jpg" alt="">
+                    <button  class="Button" id="upi">UPI</button><br>
+                    <img src="/image/png-transparent-credit-card-computer-icons-payment-card-bank-payment-text-payment-logo.png" alt="">
+                    <button class="Button" id="cards">Credit & Debit Cards</button><br>
+                   
+                   
+                </div>
+                <div id="display">
+                 
+                
+                </div>
+               
+              </div>
+            
+
+            </div>
+
+            <form class="popup">
+                <h1 id="welcome-text">ADD Your Address   </h1>
+                 
+                <h2 id="shop-name-text">GARDEN OF EAT'N</h2>
+                   
+                
+                        <div class="close-btn">&times;</div>
+                        <div class="form">
+
+                        <div class="form-element">
+                            <input type="text" id="addressOne" placeholder="Adress Line 1" required>
+                        </div>
+
+                        <div class="form-element">
+                        <input type="text" id="addressTwo" placeholder="Adress Line 2" required>
+                        </div>
+
+                        <div class="form-element"> 
+                        <input type="text" id="Dist" placeholder="Distric" required>
+                        </div>
+
+                        <div class="form-element"> 
+                            <input type="text" id="state" placeholder="State" required>
+                            </div>
+
+                            <div class="form-element"> 
+                                <input type="number" id="pinCode" placeholder="PinCode">
+                                </div>
+                            
+                            <div class="form-element"> 
+                               <input type="text" id="Country" placeholder="Country">
+                                    </div>
+                        
+                        <div class="form-element">
+                        <input type="checkbox" id="remember-me" >
+                        <label for="remember-me"  ><p id="remember-me">REMEMBER This Adress</p></label>
+                        </div>
+
+                        <div class="form-element">
+                            <button type="submit" id="submit" >Add Address</button>
+                        </div>
+
+                        
+
+                       
+                        
+                        </div>
+                        </form>
+        </div>
+       
+
+</body>
+<script src="/script/cart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</html>

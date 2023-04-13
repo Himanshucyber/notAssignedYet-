@@ -1,0 +1,501 @@
+
+.logo>img{
+    margin-top: 5px;
+   border-radius: 15px;
+   width: 70px;
+   margin-right: 5px
+   } 
+   
+   nav{
+     position: fixed;
+     top: 0;
+     width: 100%;
+     background: rgb(255,255,255);
+     background: linear-gradient(0deg, rgba(255,255,255,0.9444152661064426) 0%, rgba(255,255,255,1) 100%);
+     }
+   
+    
+   .popup{
+     position:absolute;
+     top:-150%;
+     left:50%;
+     opacity: 0;
+      transform: translate(-50%,-50%) scale(1.25);
+      width:500px;
+      padding:20px 30px;
+      background: #fff;
+      box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.15);
+      transition:top 0ms ease-in-out 200ms ,
+      opacity 200ms ease-in-out 0ms,
+      transform 200ms ease-in-out 0ms;
+       border-radius: 20px;
+       background-color: #eee;
+      }
+      .popup.active{
+       top:80%;
+       opacity: 1;
+      transform: translate(-50%,-50%) scale(1);
+      transition:top 0ms ease-in-out 0ms ,
+      opacity 200ms ease-in-out 0ms,
+      transform 200ms ease-in-out 0ms
+      }
+      .popup .close-btn{
+      font-size: 20px;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      height: 25px;
+      font-weight: bolder;
+      display: flex;
+      justify-content: center;
+      width: 25px;
+      align-items: center;
+      background: #888;
+      color: #eee;
+      text-align: center;
+      line-height: 15 px;
+      border-radius: 50%;
+      cursor: pointer;
+      
+      }
+      #signin{
+       text-align: center;
+       margin: auto;
+      
+      }
+     
+      .popup .form .form-element{
+       margin: 15px 0px;
+       border-radius: 10px;
+      }
+      
+      #remember-me{
+       margin-top: 5px;
+       text-align: right;
+      }
+      .popup .form .form-element input[type="number"],.popup .form .form-element input[type="text"],.popup .form .form-element input[type="password"]{
+       margin-top:0px;
+       width: 100%;
+       padding:10px ;
+       border: 1px solid #aaa;
+      }
+      .popup .form .form-element input[type="checkbox"] {
+      margin-right:5px ;
+     margin: auto;
+      }
+      .popup .form .form-element button{
+       width:100%;
+       height:50px;
+       border: none;
+       outline: none;
+      font-size:15px ;
+      background:#222;
+      color:#f5f5f5;
+      cursor: pointer;
+      }
+      .popup .form .form-element a{
+       display: block;
+       text-align:left;
+       font-size: 15px;
+       color: #1a79ca;
+       text-decoration: none;
+       font-weight: 600px;
+      }
+      #welcome-text{
+      letter-spacing: 0.1em;
+      padding-bottom: 15px;
+      text-align: left;
+      font-weight: 400;
+      margin-bottom: 0%;
+      }
+      #shop-name-text{
+      text-align: left;
+      letter-spacing: 0.1em;
+     line-height: 0%;
+     margin-left: 0%;
+     font-family: Arial, Helvetica, sans-serif;
+      }
+      #detail-text{
+      margin-top: 50px;
+      text-align: left;
+      }
+      #createannewaccount{
+      text-align: left;
+      }
+      #submit{
+       margin-top:0px;
+       width: 100%;
+       padding:10px ;
+       border: 1px solid #aaa;
+   
+      }
+   
+   
+   
+   
+   
+   
+   
+     #page{
+       width: 100%;
+       margin-top: 40px;
+       display: grid;
+       grid-template-columns: repeat(3,1fr);
+       justify-content: space-between;
+       background-color: #CFD8DC;
+   
+     }
+     #address{
+    background-color: white;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin-top: 30px;
+    margin-left: 10px;
+   
+     }
+     #top{display: flex;}
+    
+     #top>img{
+       margin-top: 20px;
+       margin-left: 20px;
+       width: 25px;
+       height: 20px;
+       margin-right: 10px;
+     }
+   
+   
+     #savedAddress{
+       display: grid;
+       grid-template-columns: repeat(2,1fr);
+       justify-content: space-between;
+       background-color: white
+       
+     }
+     #savedAddress>div{
+       text-align: center;
+       box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+     }
+     #savedAddress>div:hover{
+       text-align: center;
+       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+     }
+   
+     #savedAddress>div>img{
+       width: 30px;
+       margin-left: -200px;
+     }
+     #savedAddress>div>div{
+       margin-top: -50px;
+     }
+     #savedAddress>div>div>button:hover{
+       background-color: green;
+     }
+     #savedAddress>div>div>button{
+       cursor: pointer;
+       border-radius: 5px;
+       background-color: #222;
+       width: 150px;
+       height: 30px;
+       color: antiquewhite;
+       margin-bottom: 30px;
+     }
+   
+     #addAddress{
+       margin-left: 20%;
+       margin-top: 20px;
+       width: 200px;
+       height: 30px;
+       border-radius: 3px;
+     }
+   
+     #addAddress>button{
+       background-color: #222;
+       width: 100%;
+       height:100%;
+       border-radius: 3px;
+       color: white;
+       font-size: medium;
+       font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+     }
+   
+     
+   
+   
+                  /* Product div styling */
+   
+    #productInfo{
+     width: 100%;
+     margin-top: 30px;
+     margin-left: 10px;
+     grid-column-start: 3;
+     grid-column-end: 4;
+     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+     margin-right: 0px;
+     background-color: white;
+    }
+    #title{display: flex;}
+    #productInfo>div>img{
+     border-radius: 5px;
+     width: 70px;
+     margin-top: 0px;
+     margin-left: 10px;
+     margin-right: 10px;
+    }
+    #productInfo>div>h3{
+     margin-left: 0px;
+     color: slategray;
+     margin-top: 10px;
+    }
+    #productInfo>div>div{
+     display: flex;
+     justify-content: space-evenly;
+     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+     margin-top: 10px;
+    }
+    #productInfo>div>div>div{
+     display: flex;
+     
+     margin: auto;
+     height: 40px;
+     width: 80px;
+    }
+    #productInfo>div>div>div:nth-child(1){
+     width: 70%;
+    }
+    /* #productInfo>div>div>div>p:nth-child(1){
+     font-size: larger;
+     margin-right: 10px;
+     margin-left: 10px;
+     margin-bottom: 30px;
+     color: #222;
+    } */
+    #productInfo>div>div>div>p:nth-child(2){
+     margin-right: 10px;
+     margin-left: 10px;
+     color: #6D4C41 ;
+    }
+    #productInfo>div>div>div>p:nth-child(3){
+     font-size: larger;
+     margin-right: 10px;
+     margin-left: 10px;
+     color: #039BE5 ;
+    }
+   #coupon{
+     display: flex;
+     margin-left: 0px;
+     box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+   }
+   #coupon>img{
+     width: 30px;
+     height: 30px;
+     margin-top: 10px;
+     margin-left: 10px;
+   }
+   #coupon>p{
+     margin-left: 20px;
+   }
+   #bill>div{
+     width: 100%;
+     
+   }
+   #itemTotal>p:nth-child(1){
+     margin-left: -50px;
+   }
+   #deleveryprice>p:nth-child(1){
+     margin-left: -40px;
+   }
+   #tax>p:nth-child(1){
+     margin-left: -15px;
+   }
+   #Total_price>p:nth-child(1){
+     margin-left: -60px;
+   }
+   
+   #deleveryprice{
+     box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+   }
+   
+   #tax{
+     border-bottom: 2px solid black;
+   }
+   
+   #Total_price{
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   }
+   
+   
+   /* Payment Styling */
+   
+   #paymentDetails{
+     background-color: white;
+     grid-column-start: 1;
+     grid-column-end: 4;
+     margin-top: 10px;
+     margin-left: 10px;
+   }
+   #img_payment{
+     display: flex;
+   }
+   #img_payment>img{
+     width: 40px;
+     height: 40px;
+     margin-left: -10px;
+     margin-right: 20px;
+   }
+   #payment{
+       width: 100%;
+       display: grid;
+       grid-template-columns: repeat(4,1fr);
+       justify-content: space-between;
+      
+   
+   }
+   #options{
+     margin-left: 30px;
+     background-color: #E0E0E0;
+     grid-column-start: 1;
+     grid-column-end: 2;
+   }
+   #options>img{
+     width: 30px;
+     height: 30px;
+     margin-left: -13px;
+     border-radius: 5px;
+     margin-top: 30px;
+   }
+   
+   #options>button{
+     width: 100%;
+     height: 40px;
+     background-color: #E0E0E0;
+     border: 0px;
+   }
+   
+   
+   #display{
+     margin-left: 30px;
+     background-color:white;
+     grid-column-start: 2;
+     grid-column-end: 4;
+   }
+   .paymentCard{
+     text-align: center;
+     width: 80%;
+     margin-left: 10px;
+     margin-bottom: 10px;
+     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+   }
+   .paymentCard>img{
+     width: 80px;
+     margin-top: 40px;
+    
+   }
+   .paymentCard>button{
+    
+     margin-bottom: 20px;
+     width: 80%;
+     height: 30px;
+     border: 0px;
+     border-radius: 2px;
+     background-color: green;
+   }
+   
+   .upiPayment{
+     margin-top: 130px;
+     text-align: center;
+     width: 80%;
+     margin-left: 10px;
+     margin-bottom: 10px;
+     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+   }
+   .upiPayment>input{
+     text-align: center;
+     margin-top: 20px;
+     height: 40px;
+   }
+   .upiPayment>p{
+     font-size: smaller;
+   }
+   .upiPayment>button{
+     color: #CFD8DC;
+     border: 0px;
+     background-color: green;
+     width: 130px;
+     margin-bottom: 30px;
+     height: 50px;
+     border-radius: 3px;
+   }
+   .cardPayment{
+     margin-top: 160px;
+     text-align: center;
+     width: 80%;
+     margin-left: 10px;
+     margin-bottom: 10px;
+     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+   }
+   .cardPayment>input{
+     height: 30px;
+   }
+   .cardPayment>h3{
+     color: #6D4C41;
+   }
+   .cardPayment>button{
+     border: 0px;
+     background-color: green;
+     margin-bottom: 30px;
+     width: 120px;
+     height: 30px;
+     border-radius: 3px;
+   }
+   #deleverHere>button{
+     background-color:darkcyan;
+   }
+   
+   
+    @media only screen and (max-width: 750px)  {
+     
+   
+     #page{
+       width: 100%;
+       margin-top: 40px;
+       display: grid;
+       grid-template-columns: repeat(3,1fr);
+       justify-content: space-between;
+       background-color: #CFD8DC;
+       
+   
+     }
+    
+     #dish>div>div:nth-child(1){
+       width: 60%;
+     }
+     
+   
+     #address{
+       width: 100%;
+       grid-column-start: 1;
+       grid-column-end: 4;
+       margin-right: 10px;
+     }
+     #productInfo{
+       grid-auto-rows: auto;
+       grid-column-start: 1;
+       grid-column-end: 4;
+       margin-right: 10px;
+     }
+   
+     #savedAddress{
+       margin-left: 20px;
+       display: grid;
+       grid-template-columns: repeat(1,90%);
+       justify-content: space-between;
+       
+      }
+      #savedAddress>div{
+       text-align: center;
+       margin-bottom: 10px;
+      }
+      #savedAddress>div>img{
+      margin-left: -80px;
+      }
+    }
