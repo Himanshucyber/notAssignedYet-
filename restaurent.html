@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GARDEN EAT'S</title>
-    <link rel="stylesheet" href="/style/index.css">
     
+    <link rel="stylesheet" href="/style/restaurent.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"  />
 </head>
 <body>
-    
+
+        <!-- Nav Bar Start here -->
     <!-- Nav Bar Start here -->
     <nav>
       <div class="wrapper">
@@ -24,16 +24,16 @@
             <div>
               <input id="search" type="text" placeholder="Search Here">
             </div>
-            <div  id="loginidi" ><p id="user"></p> <img src="/image/login.jpg" id="loginid" alt=""></div>
-            <button id="logout"></button>
+        <button id="logout"></button>
         
-          
+           
           </div>
           </div>
         
        </div>
+       </div>
                
-      
+       <div  id="loginidi" ><p id="user"></p> <img src="/image/login.jpg" id="loginid" alt=""></div>
     </nav>
   
                  
@@ -83,40 +83,49 @@
                   </div>
                   </div>
                   </div> 
+                    
+    <div id="product">
 
-                  <!-- Login Popup End Here -->
+     
 
-      <!-- Nav Bar End here -->
 
-                  <div id="container">
-                  <div id="top">
-                    <div id="count">
 
-                    </div>
-                   
-                  <div id="time">
-                    <h5>Delivery Time</h5>
-                  </div>
-                  <div id="rating">
-                    <h5>Rating</h5>
-                  </div>
-                  <div id="l2h">
-                    <h5>Cost: Low To High</h5>
-                  </div>
-                  <div id="h2l">
-                    <h5>Cost: High To Low</h5>
-                  </div>
-                  
-                  </div>
-                  <i class="fa-regular fa-heart-circle-plus"></i>
-                  <div id="products">
-                    <!-- products will be append here -->
-                   
-                  </div>
-                </div>
+
+    </div>
+
+    <div id="menu">
+    
+    </div>
+    <div id="addtocartBtn">
+        
+    </div>
 </body>
+<script src="/script/restaurent.js"></script>
 
-<script src="/script/index.js"></script>
-<script src="/script/sighIn.js"></script>
+
+<script>
+    // let isLogin= JSON.parse(localStorage.getItem("loginstatus"));
+
+document.querySelector("#loginidi").addEventListener("click",function(){
+  console.log(isLogin)
+  if(isLogin.status){
+    Swal.fire(
+      'Login?',
+      'You are still loged In? Log Out First',
+      'question'
+    )
+    // window.location.href = "/product.html"
+  }
+  else{
+  document.querySelector(".popup").classList.add("active")
+  }
+      })
+  
+      document.querySelector(".popup .close-btn").addEventListener("click",function(){
+  document.querySelector(".popup").classList.remove("active");
+  
+      })
+
+</script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </html>
