@@ -14,6 +14,10 @@
       }
       body {
         width: 100%;
+        background-image: url('/image/—Pngtree—bread\ minimalist\ literary\ white\ food_1121500.jpg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
       }
       nav {
         width: 100%;
@@ -205,15 +209,28 @@
           console.log(newRestaurent);
           localStorage.setItem("newRestaurent",JSON.stringify(newRestaurent));
           localStorage.setItem("opration",JSON.stringify({states :"Add"}));
-          
-          window.location.href = "addMenu.html";
+          fetch(`${url}`, {
+               method: 'POST',
+               headers: { 'Content-Type': 'application/json' },
+               body: JSON.stringify(newRestaurent)
+                  })
+               .then(response => response.json())
+               .then(allRestro => {
+         
+                console.log(allRestro)
+                  //  window.location.href = "/admin.html" 
+                  window.location.href = "addMenu.html";
+              })
+              .catch(error => console.error(error));
+
+         
           
          })
        }
       else {
          Swal.fire(
          'Good job!',
-          'You clicked the button!',
+          'You  hijclicked the button!',
           'success'
             )
       }

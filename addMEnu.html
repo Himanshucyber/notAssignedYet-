@@ -14,6 +14,10 @@
       }
       body {
         width: 100%;
+        background-image: url('/image/—Pngtree—bread\ minimalist\ literary\ white\ food_1121500.jpg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
       }
       nav {
         width: 100%;
@@ -85,23 +89,23 @@
         border-radius: 5px;
         padding: 10px;
       }
-      #rating{
-        grid-column-start: 3;
+      #ingr{
+        grid-column-start: 4;
         grid-column-end: 5;
         font-size: 15px;
         border-radius: 5px;
         padding: 10px;
       }
-      #cat{
+      #desc{
         grid-column-start: 1;
-        grid-column-end: 3;
+        grid-column-end: 5;
         font-size: 15px;
         border-radius: 5px;
         padding: 10px;
       }
-      #menu{
+      #serve{
         grid-column-start: 3;
-        grid-column-end: 5;
+        grid-column-end: 4;
         font-size: 15px;
         border-radius: 5px;
         padding: 10px;
@@ -142,11 +146,11 @@
       />
     </nav>
     <h2>Please Fill Product Details ...</h2>
-    <form method="post" name="google-sheet">
+    <form method="post" name="google-sheet" id="form">
       <input
         type="text"
         name="Title"
-        placeholder="Title of Restaurent..."
+        placeholder="Name of Dish..."
         id="name"
       />
       <input
@@ -157,67 +161,257 @@
       />
       <input
         type="number"
-        name="budget"
-        placeholder="Budget of a Restaurent..."
+        name="Price"
+        placeholder="Price of Dish..."
         id="price"
       />
       
       <input
         type="number"
-        name="rating"
-        step="any"
-        placeholder="rating of a Restaurent..."
-        id="rating"
+        name="serve"
+        placeholder="No of person serve..."
+        id="serve"
       />
+      
+      <select name="ingrediant" id="ingr">
+        <option value="veg">Veg</option>
+        <option value="nonveg">Non-Veg</option>
+      </select>
+
       <input
         type="text"
-        name="Category"
-        placeholder="Enter Category..."
-        id="cat"
+        name="Description"
+        placeholder="Enter Description ..."
+        id="desc"
       /> 
       <button type="submit" id="btn" name="submit">ADD to SITE</button>
     </form>
+    <div id="uprestrobtn">
+      
+     </div>
+
   </body> 
   
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
+
+    // url of restaurent data
     const url ="https://test-h-8359.onrender.com/restaurants"
-    const form = document.forms["google-sheet"];
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      let restaurentData;
-      if ( form.name.value != "" && form.price.value != "" && form.img.value != "" && form.rating.value != "" && form.cat.value != "")
-         {
-         fetch(url)
-         .then(res=> res.json())
-         .then((data)=>{
-          restaurentData=data;
-          console.log(restaurentData);
+
+    // get  form element
+    const form = document.getElementById("form");
+
+    // get data of restaurent to update from Localstorage
+    const restroDetails = JSON.parse(localStorage.getItem("newRestaurent"));
+    
+    // get data of  opration  update/Add
+    let opration = JSON.parse(localStorage.getItem("opration"));
+
+    // get data of dish index to update
+    let menuNo=  JSON.parse(localStorage.getItem("menu"));
+    
+    // get submit button
+    let updateBtn= document.getElementById("btn");
+
+    let allRestroData;
+
+
+
+    window.addEventListener("load",()=>{
+     
+     if(opration.states == "Update"){
+       console.log(restroDetails)
+
+      fetch(url)
+      .then((res) => {return res.json()})
+      .then((data)=>{
+      console.log(data);
+      
+      let restro= data.find(item => item.title === restroDetails.title);
+       console.log(restro.menu.length)
+       console.log(menuNo)
+       let ListNo = menuNo.listNo
+      if( ListNo  < (restro.menu.length -1)){
+      document.getElementById("name").value=restro.menu[menuNo.listNo].name;
+      document.getElementById("img").value=restro.menu[menuNo.listNo].image;
+      document.getElementById("price").value=restro.menu[menuNo.listNo].price;
+      document.getElementById("serve").value=restro.menu[menuNo.listNo].serves;
+      document.getElementById("desc").value=restro.menu[menuNo.listNo].description;
+      document.getElementById("ingr").value=restro.menu[menuNo.listNo].ingrediant;
+      
+      updateBtn.addEventListener("click",(e)=>{
+        e.preventDefault();
+
+
+
+        let newDish={};
+               newDish.name=form.name.value;
+               newDish.image= form.img.value;
+               newDish.price= form.price.value;
+               newDish.serves= form.serve.value;
+               newDish.description=form.desc.value;
+               newDish.ingrediant=form.ingr.value;
+               
+               console.log(newDish);
+        
+               restroDetails.menu.push(newDish);
+        localStorage.setItem("newRestaurent",JSON.stringify(restroDetails));
+        menuNo.listNo=menuNo.listNo+1
+        localStorage.setItem("menu",JSON.stringify(menuNo));
+        window.location.href = "addMenu.html";
+
+        })
+      }
+      else if(menuNo.listNo == restro.menu.length-1){
+
+      document.getElementById("name").value=restro.menu[menuNo.listNo].name;
+      document.getElementById("img").value=restro.menu[menuNo.listNo].image;
+      document.getElementById("price").value=restro.menu[menuNo.listNo].price;
+      document.getElementById("serve").value=restro.menu[menuNo.listNo].serves;
+      document.getElementById("desc").value=restro.menu[menuNo.listNo].description;
+      document.getElementById("ingr").value=restro.menu[menuNo.listNo].ingrediant;
+      
+      updateBtn.addEventListener("click",(e)=>{
+        e.preventDefault();
+
+        
+
+        let newDish={};
+               newDish.name=form.name.value;
+               newDish.image= form.img.value;
+               newDish.price= form.price.value;
+               newDish.serves= form.serve.value;
+               newDish.description=form.desc.value;
+               newDish.ingrediant=form.ingr.value;
+               
+        
+               restroDetails.menu.push(newDish);
+               console.log(restroDetails);
+
+               console.log("sjk")
+
+               fetch(`${url}/${restroDetails.id}`, {
+               method: 'PUT',
+               headers: { 'Content-Type': 'application/json' },
+               body: JSON.stringify(restroDetails)
+                  })
+               .then(response => response.json())
+               .then(allRestro => {
          
-          let newRestaurent={};
-          newRestaurent.id=restaurentData.length +1;
-          newRestaurent.title= form.name.value;
-          newRestaurent.budget= form.price.value;
-          newRestaurent.Category= form.cat.value.split(",").map(String);
-          newRestaurent.rating=form.rating.value;
-          newRestaurent.imgage=form.img.value;
-          newRestaurent.menu=[];
-          console.log(newRestaurent);
-          localStorage.setItem("newRestaurent",JSON.stringify(newRestaurent));
-          localStorage.setItem("opration",JSON.stringify({states :"Add"}));
+                console.log(allRestro)
+                   window.location.href = "/admin.html" 
+              
+              })
+              .catch(error => console.error(error));
+
+
+
+
+        // localStorage.setItem("newRestaurent",JSON.stringify(restroDetails));
+        // menuNo.listNo=menuNo.listNo+1
+        // localStorage.setItem("menu",JSON.stringify(menuNo));
+        // window.location.href = "addMenu.html";
+
+        })
+      }
+
+
+
+      else{
+       console.log("done")
+       localStorage.setItem("opration",JSON.stringify({states:"Add"}));
+       window.location.href = "addMenu.html";
+      }
+
+
+
+
+      })
+
+
+
+      // document.getElementById("updatadata").style.display = 'block';
+      // document.getElementById("undateId").innerText= item.dataset.id;
+      
+      // document.getElementById("cat").value=item.dataset.cat;
+    
+     }
+     else{
+      console.log(restroDetails)
+     updateBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      console.log("jwdj")
+      
+      if ( form.name.value != "" && form.price.value != "" && form.img.value != "" && form.serve.value != "" && form.desc.value != "")
+         {
+         
+         let allRestroData;
+         
+          let newDish={};
+               newDish.name=form.name.value;
+               newDish.image= form.img.value;
+               newDish.price= form.price.value;
+               newDish.serves= form.serve.value;
+               newDish.description=form.desc.value;
+               newDish.ingrediant=form.ingr.value;
+               
+        
+               restroDetails.menu.push(newDish);
+               localStorage.setItem("newRestaurent",JSON.stringify(restroDetails));
+               console.log(restroDetails)
+               fetch(`${url}/${restroDetails.id}`, {
+                method: 'PUT',
+               headers: { 'Content-Type': 'application/json' },
+               body: JSON.stringify(restroDetails )
+                  })
+               .then(response => response.json())
+               .then(allRestro => {
           
-          window.location.href = "addMenu.html";
+                console.log(allRestro)
+                  //  window.location.href = "/admin.html" 
+                 window.location.href = "addMenu.html";
+              })
+              .catch(error => console.error(error));
+
+              
+              
+
+
+
+
+          // localStorage.setItem("newRestaurent",JSON.stringify(newRestaurent));
+          // localStorage.setItem("opration",JSON.stringify({states :"Add"}));
           
-         })
+          // window.location.href = "addMenu.html";
+          
+        
        }
       else {
          Swal.fire(
-         'Good job!',
+         'No Data !',
           'You clicked the button!',
-          'success'
+          
             )
       }
     });
+
+     
+
+     }
+      
+
+
+
+    })
+
+
+
+
+
+
+
+
+   
 
 
     // function locat() {
