@@ -15,7 +15,7 @@ let userUrl = "https://test-h-8359.onrender.com/users";
 form.addEventListener("click", (event) => {
    
     // checking for  if the input fields are empty
-    if (username.value === "" || pass.value === "" || Name.value === ""){
+    if (username.value === "" || pass.value === "" ){
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
@@ -31,7 +31,7 @@ form.addEventListener("click", (event) => {
         let user;
         console.log(data)
         for (let i = 0; i <= data.length - 1; i++) {
-            if (data[i].username === username.value && data[i].password === pass.value && data[i].name === Name.value) {
+            if (data[i].username === username.value && data[i].password === pass.value ) {
                 user = data[i];
                 break;
             }

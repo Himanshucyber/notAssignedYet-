@@ -8,88 +8,7 @@
     <title>Admin Data</title>
     <!-- <link rel="icon" type="image/x-icon" href="./images/logo.png"> -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"  /> -->
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        font-weight: bolder;
-      }
-      nav {width: 100%;height: 70px;background: #B0BEC5;display: flex;justify-content: space-between;align-items: center;font-size: 30px;}
-      nav > a:nth-child(1) { padding: 0px 30px 0px 30px;text-decoration: none;color: white;}
-      nav > a:nth-child(2) {padding: 0px 30px 0px 30px;text-decoration: none;color: black;}
-      h1 {color: #263238;position: fixed; background-color: #B0BEC5;}
-      table {width: 100%;}
-      thead > tr {display: flex;justify-content: space-around;  }
-      tbody > tr {display: flex;justify-content: space-around;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; }
-      thead > tr > td,tbody > tr > td { width: 20%;}
-      thead > tr > td {font-size: 20px;font-weight: bolder;height: 60px;}
-      tbody > tr {height: 100px;border-bottom: 1px solid white;}
-      img {width: 100%;border-radius: 10px; }
-      .adminsiseimg { width: 55px;}
-      .update:hover{box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;color: white;background-color: green;}
-      .delete:hover{box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;color: white;background-color: red;}
-      .updata {color: rgb(0, 0, 0);}
-      td {display: flex;align-items: center;padding-left: 20px;text-align: left;}
-      #next { display: flex; justify-content: space-around;}
-      #next > button {margin: 5px 0px 5px 0px;font-size: 25px;padding: 5px 20px;background: rgb(3, 3, 3); color: white; }
-      .swal-text { font-size: 20px; font-weight: bolder; }
-      .swal-button {background-color: #0025ff; }
-      
-      #updatadata {position: fixed;display: none;top: 0%;left: 0%;width: 100%;height: 100%;z-index: 1001;-moz-opacity: 0.8;opacity: 1;filter: alpha(opacity=80);}
-      #form{ margin-top: 5%;
-        background-color: #B0BEC5;
-        margin-left: 15%;
-        width: 70%;
-        height: 80%; 
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
-      }
-      #img,#name,#price,#rating,#cat{
-        margin-top: 5px;
-        grid-column-start: 1;
-        grid-column-end: 3;
-        height: 40px;
-        border-radius: 10px;
-      }
-      /* #img{
-        
-        grid-column-start: 1;
-        grid-column-end: 5;
-        height: 40px;
-        border-radius: 10px;
-      } */
-      
-      button { height: 40px; grid-column-start: 1; grid-column-end: 3; padding: 10px; color: white; font-weight: bolder; border-radius: 10px; background: rgb(3, 3, 3); background: linear-gradient(   90deg, rgba(3, 3, 3, 1) 0%, rgba(255, 5, 5, 1) 26%, rgba(88, 71, 62, 1) 53%, rgba(255, 192, 0, 1) 84% );}
-      #sorting{ display: flex; justify-content: space-between;}
-      #sorting>div>button{ background: rgb(5 110 76); border: none; border-radius: 0px 0px 10px 0px; }
-      #sorting>div:nth-child(2){ margin-bottom: -3px; background: rgb(255,255,255);background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.5746673669467788) 46%, rgba(110,8,0,1) 70%); }
-      #sorting>div>select{height: 100%;margin: -4px;border: 2px solid gray;background-color: transparent;}
-      #sorting>div>input{ height: 92%; margin: 0px; border: 2px solid gray; background-color: transparent; color: white; padding-left: 20px; }
-      #sorting>div>input::placeholder { color: rgb(255, 255, 255); opacity: 1;}
-      #sorting>div>input:-ms-input-placeholder { color: rgb(255, 255, 255);}
-      #sorting>div>input::-ms-input-placeholder {color: rgb(255, 255, 255);}
-      #updatadata>form>input{
-        width: 100%;
-      }
-@media screen and (min-width:0px) and (max-width:1000px){
-  thead>tr>td:nth-child(3),tbody>tr>td:nth-child(3){ display: none;}
-}
-@media screen and (min-width:0px) and (max-width:600px){
-  #sorting{display: none;}
-  thead>tr>td:nth-child(4),tbody>tr>td:nth-child(4){ display: none;}
-}
-@media screen and (min-width:0px) and (max-width:400px){
-  thead>tr>td:nth-child(5),tbody>tr>td:nth-child(5){display: none;}
-  nav > a:nth-child(2){ padding: 0px;}
-  nav>a:nth-child(1){font-size: 20px;padding: 0px 8px 0px 8px;}
-  nav>a:nth-child(2){font-size: 20px;padding: 0px 8px 0px 8px;}
-  #next > button{font-size: 15px;}
-  h1{font-size: 20px;width: 100%;text-align: center;}
-  #btn1,#btn{height: 50px;}
-  #btn{display: flex;}
-  button,#btn{padding: 0px;display: flex;align-items: center;}
-}
-    </style>
+    <link rel="stylesheet" href="/style/admin.css">
   </head>
   <body>
     <nav>
@@ -113,12 +32,13 @@
         <input type="number" placeholder="Search By ID only ..." id="searchbar">
       </div>
     </div>
+    <div id="scroll">
     <table>
       <thead>
         <tr>
           <td>Image</td>
           <td>ID</td>
-        <td>Title</td>
+        
           <td>Title</td>
           <td>Price</td>
           <td>Rating</td>
@@ -130,13 +50,12 @@
 
       </tbody>
     </table>
-    <div id="next">
-      <button id="back">Prev Page...</button
-      ><button id="nextt">Next Page...</button>
-    </div>
+</div>
+    
     <div id="updatadata" class="updateData">
       <h1>Your Product ID is :- <span id="undateId"></span></h1>
       <form method="post" name="google-sheet" id="form">
+        <div class="close-btn">&times;</div>
         <input
           type="text"
           name="Title"
@@ -174,229 +93,6 @@
     </div>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script>
-    let form = document.querySelector("form");
-    let next = document.getElementById("nextt");
-    let back = document.getElementById("back");
-    let updatadata = document.getElementById("updatadata");
-
-
-    let adminsidefetchurl="https://test-h-8359.onrender.com/restaurants"
-    let tbody = document.getElementById("tbody");
-
-    let btnnn1 = document.getElementById("btn1");
-    let btn = document.getElementById("btn");
-    let undateidis = document.getElementById("undateidis");
-    let sortbyprice = document.getElementById("sortbyprice");
-    let sortbycategory = document.getElementById("sortbycategory");
-    let searchbar = document.getElementById("searchbar");
-    var count = 20;
-    var finaldata;
-    var sortfetchdata ;
-    var length;
-
-    // window.load eventListner
-
-    window.addEventListener("load",()=>{
-   
-    let fetchdata = fetch(adminsidefetchurl);
-         fetchdata
-         .then((data) => {
-            return data.json();
-           })
-         .then((data) => {
-          // Restaurents Data
-           finaldata = data;
-           console.log(data)  
-           sortfetchdata = data;
-           length =data.length;
-
-           localStorage.setItem("clearsorting",JSON.stringify(data));
-
-           renderAllRestro(data);
-
-           let DeleteRestro=document.querySelectorAll(".delete")
-            console.log(DeleteRestro)
-           DeleteRestro.forEach((item)=>{
-           item.addEventListener("click",()=>{
-               let Id= item.dataset.id;
-               console.log(Id)
-           let promptnum = parseInt(prompt("Please Enter product ID to Confirm"));
-           if (promptnum  == Id ){
-           console.log(Id);
-          //  swal("Processing...");
-           let newRestroData = [];
-            data.forEach((item)=>{
-              if(item.id != Id){
-                newRestroData.push(item)
-              }
-           })
-           console.log(newRestroData)
-
-           fetch(`${adminsidefetchurl}`, {
-            method: 'POST',
-            headers: {
-            'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(newRestroData)
-           })
-           .then(response => response.json())
-           .then(data => console.log(data))
-           .catch(error => console.error(error))
-          
-
-          
-        }
-       else {
-           Swal.fire({
-                  icon: 'error',
-                  title: 'Oops...',
-                  text: 'Something went wrong!',
-                  footer: '<a href="">Why do I have this issue?</a>'
-               })
-
-        }
-      });
-     })
-           });
-          })
-
-
-
-    function renderSingleRestro(data){
-
-      return `
-      <tr>
-        <td>
-          <div class="adminsiseimg">
-            <img src="${data.imgage}">
-            </div>
-            </td>
-            <td>${data.id}</td>
-            <td>${data.title}</td>
-            <td>${data.title}</td>
-            <td>${data.budget}</td>
-            
-            <td>${data.rating}<span>&star;</span></td>
-            <td class="update"  data-rating="${data.rating}" data-title="${data.title}" data-id="${data.id}" data-budget="${data.budget}" data-img="${data.imgage}" data-cat="${data.Category}" >Update</td>
-            <td class="delete" data-id="${data.id}" >Delete</td>
-            </tr>`
-    }
-
-    function renderAllRestro(data){
-      let arr = data.map((el,ind)=>{
-      return renderSingleRestro(el);
-        })
-
-      tbody.innerHTML=`${arr.join("")}`;
-
-      let updateRestro =document.querySelectorAll(".update")
-
-      console.log(updateRestro)
-      updateRestro.forEach((item)=>{
-        item.addEventListener("click",function(){
-
-          document.getElementById("updatadata").style.display = 'block';
-          document.getElementById("undateId").innerText= item.dataset.id;
-          document.getElementById("name").value=item.dataset.title;
-          document.getElementById("img").value=item.dataset.img;
-          document.getElementById("price").value=item.dataset.budget;
-          document.getElementById("rating").value=item.dataset.rating;
-          document.getElementById("cat").value=item.dataset.cat;
-
-            let updateDetails=document.getElementById("btn");
-              updateDetails.addEventListener("click",(e)=>{
-                   e.preventDefault();
-                   console.log("kasjfk");
-                   let newRestaurent={};
-                   newRestaurent.id=item.dataset.id;
-                   newRestaurent.title= form.name.value;
-                   newRestaurent.budget= form.price.value;
-                   newRestaurent.Category= form.cat.value.split(",").map(String);
-                   newRestaurent.rating=form.rating.value;
-                   newRestaurent.imgage=form.img.value;
-                   newRestaurent.menu=[];
-                   console.log(newRestaurent);
-                   localStorage.setItem("newRestaurent",JSON.stringify(newRestaurent));
-                   localStorage.setItem("menu",JSON.stringify({listNo :0}));
-                   localStorage.setItem("opration",JSON.stringify({states :"Update"}));
-
-                   window.location.href = "addMenu.html";
-            })
-        })
-      })
-     
-
-
- 
-
-
-
-      let updateDetails=document.getElementById("btn");
-
-
-      updateDetails.addEventListener("click",()=>{
-
-
-
-      })
-      // fetch(adminsidefetchurl, {
-      //       method: "POST",
-      //       headers: {
-      //       "Content-Type": "application/json",
-      //        },
-      //       body: JSON.stringify(newRestaurent),
-      //          })
-      //       .then(response => response.json())
-      //       .then((data) => {
-      //       console.log(data)
-      //        Swal.fire(
-      //         'Good job!',
-      //         'New Restaurent Added!',
-      //         'success'
-      //         )
-      //         })
-      //        .catch(error => console.error(error));
-
-
-     
-
-    }
-
-    
-    // function DeleteProduct(Id) {
-    
-    // }
-
-//     function DeleteProduct(Id) {
-//   let promptnum = parseInt(prompt("Please Enter product ID to Confirm"));
-//   if (promptnum  === Id) {
-//     console.log(Id);
-//     swal("Processing...");
-//     var myHeaders = new Headers();
-//     myHeaders.append("Content-Type", "application/json");
-//     var requestOptions = {
-//       method: "delete",
-//       headers: myHeaders,
-//       redirect: "follow",
-//     };
-//     fetch(`${adminsidefetchurl}/${Id}`, requestOptions)
-//       .then((response) => response.text())
-//       .then((result) => {
-//         swal("Your Product has Successfully Deleted...");
-//         setTimeout(() => {
-//           location.href = "./admin.html";
-//         }, 2000);
-//       })
-//       .catch((error) => swal("error", error));
-//   } else {
-//     swal("Sorry Id Could'nt MATCHED !");
-//   }
-// }
-
-
-
-
-  </script>
+  <script src="/script/admin.js"></script>
 </html>
 

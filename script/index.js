@@ -95,7 +95,7 @@ function renderDOMcards (item){
       <p class="icon-star _537e4">&star;</span><span>${rating}</p>
       <p class="price" >  ₹ ${price}</p>
       </div>
-      <p class="cat">  ${cat.join()}</p>
+      <p class="cat">  ${cat.join(" ")}</p>
       <button class="cards-buttons" data-mainc="${cat}"  data-title="${title}"  data-price="${price}" data-img1="${image}" data-rating="${rating}" data-menu=${menu}>QUICK VIEW</button>
   </div>
   `

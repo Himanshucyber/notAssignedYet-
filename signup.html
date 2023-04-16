@@ -10,19 +10,22 @@
 </head>
 <style>
 body {
-  background-color: white;
+  background-image: url('/image/—Pngtree—bread\ minimalist\ literary\ white\ food_1121500.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 600px;
 }
-
 #form {
-  margin: auto;
-  width: 60%;
+ margin-left: 50%;
+  width: 30%;
   padding: 30px;
-  background-color: white;
-  border: 2px solid black;
-  border-radius: 10px;
+  background-color: #9E9E9E;
+  
+  border-radius: 5px;
 }
 #signupheading{
-  margin-top: 100px;
+  margin-top: 10px;
   text-align: center;
 }
 label {
@@ -38,9 +41,9 @@ input[type="password"] {
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
-  border: 2px solid black;
+  border: 0px;
   border-radius: 4px;
-  background-color: #f8f8f8;
+  background-color: white;
   color: black;
 }
 
@@ -120,7 +123,7 @@ form.addEventListener('submit', (event) => {
        
 setTimeout(() => {
   window.location.href = "/index.html"
-  }, "2000");
+  }, "1000");
       }
      else if(existingname) {
       Swal.fire({
@@ -131,7 +134,7 @@ setTimeout(() => {
 })
 setTimeout(() => {
   window.location.href = "/index.html"
-  }, "2000");
+  }, "1000");
       
      }
   else{
@@ -163,7 +166,7 @@ setTimeout(() => {
   showConfirmButton: false,
   timer: 1500
   })
-    alert()
+    
     window.location.href = "/index.html"
   })
   .catch(error => console.error(error));
