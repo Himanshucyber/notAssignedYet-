@@ -5,16 +5,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin Data</title>
+    <title>Admin Home</title>
+    <link rel="icon" type="image/x-icon" href="/image/favicon (1).ico">
     <!-- <link rel="icon" type="image/x-icon" href="./images/logo.png"> -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"  /> -->
     <link rel="stylesheet" href="/style/admin.css">
+    <link rel="stylesheet" href="/image/favicon (1).ico">
   </head>
   <body>
     <nav>
       <a href="./index.html">GARDEN OF EAT'N</a>
       <a href="./addRest.html">Add Product</a>
     </nav>
+    
     <div id="sorting">
       <div><button onclick="clearfunction()">Clear Filter</button></div>
       <div>
@@ -23,7 +26,7 @@
           <option value="lowtohigh">Low To High</option>
           <option value="hightolow">High To Low</option>
         </select>
-        <select name="SubCategory" id="sortbycategory">
+        <select name="rating" id="sortbyrating">
           <option value="">Sort By Rating</option>
           <option value="4"><4</option>
           <option value="5">>4</option>
@@ -32,6 +35,7 @@
         <input type="number" placeholder="Search By ID only ..." id="searchbar">
       </div>
     </div>
+    <div id="topPage">
     <div id="scroll">
     <table>
       <thead>
@@ -51,10 +55,28 @@
       </tbody>
     </table>
 </div>
+
+    <form id="adminForm">
+       <h2>Create Admin Account</h2>
+        <input type="text" placeholder="Name" id="adminName" required >
+
+      
+        <input type="text" placeholder="Username" id="adminUsername" required>
+       
+       
+        <input type="text" placeholder="Mobile No." id="contact" required>
+       
+       
+        <input type="password" placeholder="Password" id="adminPassword" required> <br>
+       
+        
+        <button type="adminSubmit">Sign Up</button>
+      </form>
+      </div>
     
     <div id="updatadata" class="updateData">
       <h1>Your Product ID is :- <span id="undateId"></span></h1>
-      <form method="post" name="google-sheet" id="form">
+      <form method="post" name="google-sheet" id="updateForm">
         <div class="close-btn">&times;</div>
         <input
           type="text"
@@ -91,6 +113,8 @@
         <button type="submit" id="btn" name="submit">ADD to SITE</button>
       </form>
     </div>
+   
+     
   </body>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="/script/admin.js"></script>
