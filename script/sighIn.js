@@ -23,6 +23,7 @@ form.addEventListener("click", (event) => {
             footer: '<a href="">Why do I have this issue?</a>'
         })
         return;
+        
     }
     // check if user is already logged in
     fetch(userUrl)

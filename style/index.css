@@ -83,6 +83,7 @@ margin-top: 10px;
 /* login and sign up popup styling */
 
 #user{
+  color: #1a79ca;
   margin-top: 0%;
   height: 40%;
   width: 100%;
@@ -98,6 +99,7 @@ margin-top: 10px;
         -moz-border-radius: 50%;
         -ms-border-radius: 50%;
         -o-border-radius: 50%;
+        
        
           }
       #loginidi{

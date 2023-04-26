@@ -9,14 +9,7 @@
     background-size: cover;
     background-repeat: no-repeat;
   }
-  #scroll{
-    height: 400px;
-    overflow: scroll;
-    margin-top: 20px;
-    margin-left: 10px;
-    border-radius: 10px;
-    width: 40%;   
-  }
+  
   nav {width: 100%;height: 50px;background: #B0BEC5;display: flex;justify-content: space-between;align-items: center;font-size: 30px;}
   nav > a:nth-child(1) { padding: 0px 30px 0px 30px;text-decoration: none;color: white;}
   nav > a:nth-child(2) {padding: 0px 30px 0px 30px;text-decoration: none;color: black;}
@@ -35,12 +28,11 @@
   tbody > tr {height: 100px;border-bottom: 1px solid white;}
   img {width: 100%;border-radius: 10px; }
   .adminsiseimg { width: 55px;}
-  .update:hover{box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;color: white;background-color: green;}
-  .delete:hover{box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;color: white;background-color: red;}
+  .update:hover{color: white;background-color: green;}
+  .delete:hover{color: white;background-color: red;}
   .updata {color: rgb(0, 0, 0);}
   td {display: flex;align-items: center;padding-left: 20px;text-align: left;}
-  #next { display: flex; justify-content: space-around;}
-  #next > button {margin: 5px 0px 5px 0px;font-size: 25px;padding: 5px 20px;background: rgb(3, 3, 3); color: white; }
+ 
   .swal-text { font-size: 20px; font-weight: bolder; }
   .swal-button {background-color: #0025ff; }
   
@@ -85,19 +77,123 @@
   .close-btn:hover{
     cursor: pointer;
   }
-  /* #img{
-    
-    grid-column-start: 1;
-    grid-column-end: 5;
-    height: 40px;
-    border-radius: 10px;
-  } */
+
+#topPage{display: flex;}
+
+#scroll{
+  height: 400px;
+  overflow: scroll;
+  scrollbar-width: none;
+  margin-top: 20px;
+  margin-left: 10px;
+  border-radius: 10px;
+  width: 70%;   
+}
+#updateForm{
+  height: 80%;
+  justify-content: center;
+  overflow: scroll;
+  scrollbar-width:thin;
+  margin-top: 20px;
+  margin-left: 10%;
+  border-radius: 10px;
+  width: 50%;
+}
+#updateForm>input{
+  background-color: #FFEB3B;
+}
+
+#adminForm{
   
-  button { height: 40px; grid-column-start: 1; grid-column-end: 3; padding: 10px; color: white; font-weight: bolder; border-radius: 10px; background: rgb(3, 3, 3); background: linear-gradient(   90deg, rgba(3, 3, 3, 1) 0%, rgba(255, 5, 5, 1) 26%, rgba(88, 71, 62, 1) 53%, rgba(255, 192, 0, 1) 84% );}
-  #sorting{ display: flex; justify-content: space-between;}
+  height: 80%;
+  justify-content: center;
+  overflow: scroll;
+  scrollbar-width:none;
+  margin-top: 20px;
+  margin-left: 10%;
+  border-radius: 10px;
+  width: 30%;
+  
+}
+
+#adminForm>input{
+  border: 10px solid #ccc;
+}
+ #adminForm>button{
+  
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 20px;
+  display: inline-block;
+  border: 10px solid #ccc;
+  box-sizing: border-box;
+  text-align: center;
+  height: auto;
+  backdrop-filter: blur(5px);
+  background-color:#263238;
+} 
+
+  body {
+    background-image: url('/image/—Pngtree—bread\ minimalist\ literary\ white\ food_1121500.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 600px;
+  }
+  #form {
+   margin-left: 50%;
+    width: 30%;
+    padding: 30px;
+    background-color: #9E9E9E;
+    
+    border-radius: 5px;
+  }
+  #signupheading{
+    margin-top: 10px;
+    text-align: center;
+  }
+  label {
+    font-size: 1.2em;
+    color: black;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 0px;
+    border-radius: 4px;
+    background-color: white;
+    color: black;
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: white;
+    color: black;
+  }
+
+  
+  button { height: 40px; grid-column-start: 1; grid-column-end: 3; padding: 10px; color: white; font-weight: bolder; border-radius: 10px; background: rgb(3, 3, 3); }
+  /* #sorting{ display: flex; justify-content: space-between;} */
+  #sorting>div{margin-right: 0px; margin-left: 0px; }
   #sorting>div>button{ background: rgb(5 110 76); border: none; border-radius: 0px 0px 10px 0px; }
-  #sorting>div:nth-child(2){ margin-bottom: -3px; background: rgb(255,255,255);background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.5746673669467788) 46%, rgba(110,8,0,1) 70%); }
-  #sorting>div>select{height: 100%;margin: -4px;border: 2px solid gray;background-color: transparent;}
+  #sorting>div:nth-child(2){ margin-bottom: -3px; background: transparent; margin-left: 20px; }
+  #sorting>div>select{color: aliceblue; height: 100%;margin: -4px;border: 2px solid gray;background-color: transparent;}
   #sorting>div>input{ height: 92%; margin: 0px; border: 2px solid gray; background-color: transparent; color: white; padding-left: 20px; }
   #sorting>div>input::placeholder { color: rgb(255, 255, 255); opacity: 1;}
   #sorting>div>input:-ms-input-placeholder { color: rgb(255, 255, 255);}
@@ -105,17 +201,33 @@
   #updatadata>form>input{
     width: 100%;
   }
-@media screen and (min-width:0px) and (max-width:1000px){
-thead>tr>td:nth-child(3),tbody>tr>td:nth-child(3){ display: none;}
-}
-@media screen and (min-width:0px) and (max-width:700px){
+
+@media screen and (max-width:700px){
   #scroll{
+    grid-column-start: 1;
+    grid-column-end: 2;
     height: 400px;
     overflow: scroll;
     margin-top: 20px;
     margin-left: 10px;
     border-radius: 10px;
-    width: 70%;   
+    width: 100%;   
+  }
+  #adminForm{
+    display: block;
+    height: 400px;
+   
+    overflow: scroll;
+    scrollbar-width:none;
+    margin-top: 20px;
+    margin-left: 10%;
+    border-radius: 10px;
+    width: 80%;
+    
+  }
+  #adminForm>button{
+    margin-left: 26%;
+    width: 200px;
   }
 
 #sorting{display: none;}
